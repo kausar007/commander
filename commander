@@ -1,0 +1,20 @@
+#!/usr/bin/python
+import argparse
+import re
+parser = argparse.ArgumentParser()
+parser.add_argument("string", type=str,
+                    help="the command string to search", nargs='+')
+parser.add_argument("-v", "--verbose", action="store_true",
+                    help="increase output verbosity")
+args = parser.parse_args()
+lines = open('db', 'r').read().splitlines()
+for line in lines:
+    found = True
+    for string in args.string:
+        if not re.search(string, line):
+            found = False
+            break
+    if found:
+        print(line)
+    else:
+        found = True

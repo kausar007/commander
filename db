@@ -1,0 +1,8 @@
+docker ps
+docker start container_id
+docker stop container_id
+git status
+git add file
+git remove file
+git commit -m message
+git push
